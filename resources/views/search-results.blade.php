@@ -1,5 +1,7 @@
 @if ($searchTerm ?? null)
-  <h1>Search Results for: {{ $searchTerm }}</h1>
+  <h1 class="font-bold">
+    Search Results for: {{ $searchTerm }}
+  </h1>
 
   @if (count($recipes) > 0)
     <ul role="list" class="divide-y divide-gray-200">
