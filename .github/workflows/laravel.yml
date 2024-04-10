@@ -11,6 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      DB_HOST: 127.0.0.1
+
     services:
       mysql:
         image: mysql:8.1
@@ -57,8 +60,4 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
-        env:
-          DB_HOST: 127.0.0.1
-          DB_CONNECTION: sqlite
-          DB_DATABASE: database/database.sqlite
         run: php artisan test
