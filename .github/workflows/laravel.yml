@@ -15,6 +15,7 @@ jobs:
       DB_CONNECTION: mysql
       DB_HOST: 127.0.0.1
       DB_DATABASE: techtest
+      APP_URL: http://127.0.0.1:8000
 
     services:
       mysql:
