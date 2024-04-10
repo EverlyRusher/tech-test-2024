@@ -14,16 +14,23 @@
   </head>
   <body class="font-sans antialiased bg-gray-100">
     <div class="mx-auto max-w-2xl">
-  <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          Recipe.ai Search
-      </h2>
-      <p class="mt-6 text-lg leading-8 text-gray-600">
-        Look for your favorite recipes and discover new ones.
-      </p>
-    </div>
-  </div>
+      <div class="bg-white px-6 py-24 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            Recipe.ai Search
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600">
+          Look for your favorite recipes and discover new ones.
+          </p>
+          <p>
+          <form action="{{ route('recipe.filter') }}" method="GET">
+            <label for="search_query">Search by Ingredient or Name:</label>
+            <input type="text" name="search_query" id="search_query" placeholder="Enter your search term">
+            <button type="submit">Search</button>
+          </form>
+          </p>
+        </div>
+      </div>
     </div>
   </body>
 </html>

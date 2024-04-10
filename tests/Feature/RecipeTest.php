@@ -40,20 +40,15 @@ class RecipeTest extends TestCase
         ]);
 
         $this
-            ->getJson( route(
+            ->getJson(route(
                 'recipe.filter',
-                ['text' => $recipe_to_search->title],
+                ['search_query' => $recipe_to_search->title],
             ))
             ->assertStatus(200)
-            ->assertJsonCount(1)
-            ->assertJsonStructure([
-                '*' => [
-                    'id',
-                    'title',
-                    'body',
-                    'created_at',
-                    'updated_at',
-                ],
-            ]);
+            ->assertViewIs('search-results')
+            ->assertSee($recipe_to_search->body)
+            ->assertSee($recipe_to_search->title)
+            ->assertSee('Search Results for: Recipe 1')
+            ->assertDontSee('Recipe not 1');
     }
 }
