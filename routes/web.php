@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/recipes/filter', function (Request $request) {
@@ -17,6 +17,6 @@ Route::get('/recipes/filter', function (Request $request) {
         ->orWhere('body', 'like', "%{$data['search_query']}%")
         ->get();
 
-    return view('search-results', compact('recipes'))
+    return view('home', compact('recipes'))
         ->with('searchTerm', $data['search_query']);
 })->name('recipe.filter');

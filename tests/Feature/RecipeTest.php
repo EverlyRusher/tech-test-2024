@@ -45,7 +45,7 @@ class RecipeTest extends TestCase
                 ['search_query' => $recipe_to_search->title],
             ))
             ->assertStatus(200)
-            ->assertViewIs('search-results')
+            ->assertViewIs('home')
             ->assertSee($recipe_to_search->body)
             ->assertSee($recipe_to_search->title)
             ->assertSee('Search Results for: Recipe 1')
