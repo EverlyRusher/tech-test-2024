@@ -68,3 +68,10 @@ jobs:
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         run: php artisan test
+
+      - name: Archive Laravel.log
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: phpunit-laravel-log
+          path: storage/logs/laravel.log
