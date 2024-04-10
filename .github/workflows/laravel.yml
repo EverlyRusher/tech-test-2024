@@ -66,8 +66,9 @@ jobs:
 
 
       - name: Build front
-        run: bun install
-        run: bun run build
+        run: |
+          bun install
+          bun run build
 
       - name: Server
         run: php artisan serve &
