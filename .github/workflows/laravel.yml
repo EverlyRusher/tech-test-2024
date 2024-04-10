@@ -64,17 +64,27 @@ jobs:
       - name: Run Migration
         run: php artisan migrate -n --force
 
-
       - name: Build front
         run: |
           bun install
           bun run build
+
+      - name: Upgrade Chrome Driver
+        run: php artisan dusk:chrome-driver
+
+      - name: Start Chrome Driver
+        run: ./vendor/laravel/dusk/bin/chromedriver-linux &
 
       - name: Server
         run: php artisan serve &
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         run: php artisan test
+
+      - name: Run Dusk Tests
+        run: |
+          chmod -R 0755 vendor/laravel/dusk/bin/
+          php artisan dusk
 
       - name: Archive Laravel.log
         if: failure()
