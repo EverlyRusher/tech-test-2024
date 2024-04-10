@@ -48,3 +48,15 @@ sail bun run build
 # Pass tests
 sail test
 ```
+
+## Dusk
+
+Dusk install
+```php
+sail artisan dusk:install
+```
+
+Run dusk tests
+```php
+sail dusk
+```
