@@ -15,7 +15,7 @@ jobs:
       DB_CONNECTION: mysql
       DB_HOST: 127.0.0.1
       DB_DATABASE: techtest
-      APP_URL: http://127.0.0.1:8000
+      APP_URL: "http://127.0.0.1:8000"
 
     services:
       mysql:
@@ -64,7 +64,7 @@ jobs:
         run: php artisan migrate -n --force
 
       - name: Server
-        run: php artisan serve &
+        run: php artisan serve > /dev/null 2>&1 &
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         run: php artisan test
