@@ -7,11 +7,10 @@
     <ul role="list" class="divide-y divide-gray-200">
       @foreach ($recipes as $recipe)
         <li v-for="item in items" :key="item.id" class="py-4">
-          <div class="flex">
-            <div>{{ $recipe->title }}</div>
+          <div class="grid">
+            <div class="font-semibold">{{ $recipe->title }}</div>
             <div>{{ $recipe->body }}</div>
           </div>
-
         </li>
       @endforeach
     </ul>
