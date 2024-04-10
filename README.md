@@ -34,7 +34,7 @@ alias sail="./vendor/bin/sail"
 sail up -d
 
 # Migrations
-sail artisan migrate
+sail artisan migrate --seed
 
 # Generate key
 sail artisan key:generate
