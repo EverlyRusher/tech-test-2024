@@ -64,7 +64,7 @@ jobs:
         run: php artisan migrate -n --force
 
       - name: Server
-        run: php artisan serve > /dev/null 2>&1 &
+        run: php artisan serve &
 
       - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
         run: php artisan test
