@@ -34,7 +34,8 @@ jobs:
           extensions: mbstring, dom, fileinfo, mysql
           coverage: xdebug
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
@@ -62,6 +63,11 @@ jobs:
 
       - name: Run Migration
         run: php artisan migrate -n --force
+
+
+      - name: Build front
+        run: bun install
+        run: bun run build
 
       - name: Server
         run: php artisan serve &
