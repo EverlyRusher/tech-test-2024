@@ -2,6 +2,13 @@
 
 > Look for your bests recipes.
 
+Esta es la prueba técnica de EverlyRusher 2024, basado en un proyecto realizado
+en Laravel que consiste en un buscador de recetas muy básico.
+
+El buscador presenta un campo de entrada donde puedes ingresar una palabra o
+frase clave, y buscará en los títulos y cuerpos de todas las recetas,
+devolviendo un listado de recetas en la misma página.
+
 ## Requirements
 
 * docker
