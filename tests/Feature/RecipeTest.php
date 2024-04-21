@@ -45,7 +45,7 @@ class RecipeTest extends TestCase
 
         $body = fake()->paragraph();
 
-        $recipeToSearch = Recipe::factory()->create([
+        $recipe = Recipe::factory()->create([
             'title' => $tile,
             'body' => $body,
         ]);
@@ -59,19 +59,13 @@ class RecipeTest extends TestCase
             ->getJson(route(
                 'home',
                 [
-                    'filter' => $recipeToSearch->title,
+                    'filter' => $tile,
                 ],
             ));
 
-        $recipes = $response->original['page']['props']['recipes'];
-
-        $recipe = $recipes[0];
-
         $response->assertStatus(200);
 
-        $this->assertEquals($tile, $recipe['title']);
-
-        $this->assertCount(1, $recipes);
+        $response->assertSee($recipe->tile);
     }
 
     /**

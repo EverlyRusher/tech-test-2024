@@ -28,10 +28,14 @@ class Recipe extends Model
         return 'recipes_index';
     }
 
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array<string, mixed>
+     */
     public function toSearchableArray()
     {
         return [
-            'id' => (int) $this->id,
             'title' => $this->title,
             'body' => $this->body,
         ];

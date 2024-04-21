@@ -67,3 +67,13 @@ Run dusk tests
 ```php
 sail dusk
 ```
+
+## TEST FUZZY FINDER VINOLES
+
+Notes
+```php
+sail artisan scout:sync-index-settings
+sail php artisan scout:import "App\Models\Recipe"
+sail artisan queue:work redis --queue=scout
+```
+
