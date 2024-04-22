@@ -21,7 +21,7 @@
           <div class="pb-12">
             <h2 class="realtive text-2xl font-bold leading-7 text-gray-900 text-center">
               Recipe.ai Search
-              <span class="absolute animate-bounce">{{ $random_emoji }}</span>
+              <span class="absolute animate-bounce">{{ $random_emoji ?? '' }}</span>
             </h2>
             <p class="mt-1 text-sm leading-6 text-gray-600 text-center">
               Look for your favorite recipes and discover new ones.
