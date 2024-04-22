@@ -9,4 +9,3 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/recipes/search', [RecipeController::class, 'search'])->name('recipe.search');
-
