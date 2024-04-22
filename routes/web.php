@@ -26,16 +26,3 @@ Route::get('/recipes/filter', function (Request $request) {
     return view('home', compact('recipes'))
         ->with('searchTerm', $data['search_query']);
 })->name('recipe.filter');
-
-/**
- * This route is used to search for recipes using Laravel Scout.
- */
-Route::get('/recipes/search', function (Request $request) {
-    $data = $request->validate([
-        'search_query' => 'required|string',
-    ]);
-
-    $recipes = Recipe::search($data['search_query'])->get();
-
-    return response()->json($recipes);
-})->name('recipe.search');

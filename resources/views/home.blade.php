@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @vite('resources/css/app.css')
   </head>
-  <body class="font-sans antialiased bg-gray-100">
+  <body class="font-sans antialiased bg-gray-100 no-scrollbar">
     <div class="mt-8 mx-auto max-w-2xl p-6 bg-white rounded-lg shadow-md flex flex-col items-center relative">
 
       <form action="{{ route('recipe.filter') }}" method="GET" class="w-full">
@@ -57,7 +57,7 @@
         searchInput.addEventListener('input', function(e) {
           let searchQuery = e.target.value;
 
-          fetch('/recipes/search?search_query=' + searchQuery)
+          fetch('{{route("recipe.search")}}?search_query=' + searchQuery)
             .then(response => response.json())
             .then(recipes => {
               // Clear the results list
