@@ -41,12 +41,12 @@ class RecipeTest extends TestCase
      */
     public function test_recipe_search_return_one_recipe_endpoint(): void
     {
-        $tile = fake()->word();
+        $title = fake()->word();
 
         $body = fake()->paragraph();
 
         $recipe = Recipe::factory()->create([
-            'title' => $tile,
+            'title' => $title,
             'body' => $body,
         ]);
 
@@ -59,13 +59,13 @@ class RecipeTest extends TestCase
             ->getJson(route(
                 'home',
                 [
-                    'filter' => $tile,
+                    'filter' => $title,
                 ],
             ));
 
         $response->assertStatus(200);
 
-        $response->assertSee($recipe->tile);
+        $response->assertSee($recipe->title);
     }
 
     /**
