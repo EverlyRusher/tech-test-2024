@@ -4,7 +4,7 @@ import Results from "./components/Results";
 
 const Index = () => {
     const { recipes, filter } = usePage().props;
-    console.log("HOLA:", filter);
+
     return (
         <>
             <div className="mx-auto max-w-2xl mt-10">
