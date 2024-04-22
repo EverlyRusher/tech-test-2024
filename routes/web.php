@@ -3,9 +3,15 @@
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Collection;
 
 Route::get('/', function () {
-    return view('home');
+    $emojis = ['🥦', '🥕', '🌽', '🍅', '🍆', '🥔', '🥬', '🥒', '🌶', '🍠', '🥑', '🍄'];
+    $random_emoji = $emojis[array_rand($emojis)];
+    return view('home', [
+        'recipes' => new Collection(),
+        'random_emoji' => $random_emoji,
+    ]);
 });
 
 Route::get('/recipes/filter', function (Request $request) {

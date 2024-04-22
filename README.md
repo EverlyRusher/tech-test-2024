@@ -67,3 +67,22 @@ Run dusk tests
 ```php
 sail dusk
 ```
+
+## NOTES FOR FUZZY FINDER
+Install via composer
+```php
+
+sail composer require laravel/scout
+sail composer require meilisearch/meilisearch-php
+```
+
+add key for meilisearch
+```
+MEILISEARCH_KEY=masterKey
+```
+
+add recipes to scout
+```
+sail php artisan scout:import "App\Models\Recipe"
+```
+
